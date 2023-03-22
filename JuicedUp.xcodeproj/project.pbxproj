@@ -16,6 +16,8 @@
 		DB9C975E29CB74FB001D3823 /* JuicedUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C975D29CB74FB001D3823 /* JuicedUpTests.swift */; };
 		DB9C976829CB74FB001D3823 /* JuicedUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C976729CB74FB001D3823 /* JuicedUpUITests.swift */; };
 		DB9C976A29CB74FB001D3823 /* JuicedUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C976929CB74FB001D3823 /* JuicedUpUITestsLaunchTests.swift */; };
+		DB9C977729CB7612001D3823 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C977629CB7612001D3823 /* HomePageView.swift */; };
+		DB9C977929CB7898001D3823 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C977829CB7897001D3823 /* DataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		DB9C976329CB74FB001D3823 /* JuicedUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JuicedUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9C976729CB74FB001D3823 /* JuicedUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuicedUpUITests.swift; sourceTree = "<group>"; };
 		DB9C976929CB74FB001D3823 /* JuicedUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuicedUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB9C977629CB7612001D3823 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		DB9C977829CB7897001D3823 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +104,12 @@
 			children = (
 				DB9C974729CB74F9001D3823 /* JuicedUpApp.swift */,
 				DB9C974929CB74F9001D3823 /* ContentView.swift */,
+				DB9C977629CB7612001D3823 /* HomePageView.swift */,
 				DB9C974B29CB74FB001D3823 /* Assets.xcassets */,
 				DB9C975029CB74FB001D3823 /* Persistence.swift */,
 				DB9C975229CB74FB001D3823 /* JuicedUp.xcdatamodeld */,
 				DB9C974D29CB74FB001D3823 /* Preview Content */,
+				DB9C977829CB7897001D3823 /* DataModels.swift */,
 			);
 			path = JuicedUp;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 				DB9C975129CB74FB001D3823 /* Persistence.swift in Sources */,
 				DB9C974A29CB74F9001D3823 /* ContentView.swift in Sources */,
 				DB9C975429CB74FB001D3823 /* JuicedUp.xcdatamodeld in Sources */,
+				DB9C977929CB7898001D3823 /* DataModels.swift in Sources */,
 				DB9C974829CB74F9001D3823 /* JuicedUpApp.swift in Sources */,
+				DB9C977729CB7612001D3823 /* HomePageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

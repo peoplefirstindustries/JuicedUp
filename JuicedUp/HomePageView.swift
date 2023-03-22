@@ -9,26 +9,52 @@ import SwiftUI
 
 struct UberEatsHomepageView: View {
     
+    let restaurants = SampleData.restaurants
+    
+    let orders = SampleData.orders
+    
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    SearchBar()
-                        .padding(.horizontal)
-                    FeaturedRestaurantsView()
-                        .padding(.top)
-                    PopularDishesView()
-                        .padding(.top)
-                    FoodCategoriesView()
-                        .padding(.top)
+        ScrollView {
+            VStack(alignment: .leading) {
+                SearchBarView()
+                    .padding(.horizontal)
+                    .padding(.top)
+                
+                Text("Restaurants near you")
+                    .font(.headline)
+                    .padding(.horizontal)
+                    .padding(.top)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(restaurants) { restaurant in
+                            RestaurantCardView(restaurant: restaurant)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 }
+                FoodCategoriesView()
+                
+                FeaturedRestaurantsView()
+                
+                PopularDishesView()
+                
+                Text("Your Orders")
+                    .font(.headline)
+                    .padding(.horizontal)
+                
+                ForEach(orders) { order in
+                    OrderCardView(order: order)
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
             }
-            .navigationBarTitle("Uber Eats")
         }
     }
 }
 
-struct SearchBar: View {
+struct SearchBarView: View {
     
     @State private var searchText = ""
     
@@ -54,8 +80,8 @@ struct FeaturedRestaurantsView: View {
                 .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
-                    ForEach(0..<4) { index in
-                        FeaturedRestaurantCardView()
+                    ForEach(SampleData.restaurants) { restaurant in
+                        RestaurantCardView(restaurant: restaurant)
                     }
                 }
                 .padding(.horizontal)
@@ -64,19 +90,19 @@ struct FeaturedRestaurantsView: View {
     }
 }
 
-struct FeaturedRestaurantCardView: View {
-    
+struct RestaurantCardView: View {
+    let restaurant: Restaurant
     var body: some View {
         VStack(alignment: .leading) {
-            Image("restaurant\(Int.random(in: 1...3))")
+            Image(restaurant.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 150)
                 .cornerRadius(8)
-            Text("Restaurant Name")
+            Text(restaurant.name)
                 .font(.subheadline)
                 .foregroundColor(.primary)
-            Text("Cuisine Type")
+            Text(restaurant.cuisine.rawValue)
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -132,8 +158,8 @@ struct FoodCategoriesView: View {
                 .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
-                    ForEach(0..<4) { index in
-                        FoodCategoryCardView()
+                    ForEach(SampleData.foodCategories) { food in
+                        FoodCategoryCardView(foodCategory: food)
                     }
                 }
                 .padding(.horizontal)
@@ -143,21 +169,24 @@ struct FoodCategoriesView: View {
 }
 
 struct FoodCategoryCardView: View {
+    let foodCategory: FoodCategory
     
     var body: some View {
         VStack {
-            Image("category\(Int.random(in: 1...5))")
+            Image(foodCategory.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
                 .cornerRadius(8)
-            Text("Category")
+            Text(foodCategory.cuisineType.rawValue)
                 .font(.caption)
                 .foregroundColor(.primary)
         }
         .frame(width: 80)
     }
 }
+
+
 
 
 struct UberEatsHomepageView_Previews: PreviewProvider {
